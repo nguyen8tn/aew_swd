@@ -64,8 +64,8 @@ namespace EAW_WebApi
                 }
                 );
             services.AddControllers().AddNewtonsoftJson();
-            services.AddDbContext<AEW_DEVContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Local")));
-            //services.AddDbContext<AEW_DEVContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Database")));
+            //services.AddDbContext<AEW_DEVContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Local")));
+            services.AddDbContext<AEW_DEVContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Database")));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
