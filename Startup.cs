@@ -36,7 +36,7 @@ namespace EAW_WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "eawproject-e7a13-firebase-adminsdk-n9gov-01efcbca5a.json");
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "aew-project-2-firebase-adminsdk-gbwdn-fce557e3a8.json");
             FirebaseApp.Create(new AppOptions()
             {
                 Credential = GoogleCredential.GetApplicationDefault(),
