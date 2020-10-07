@@ -71,7 +71,7 @@ namespace EAW_WebApi
             //            sqloptions.EnableRetryOnFailure();
             //        }
             //        ));
-            services.AddDbContext<AEW_DEVContext>(option => 
+            services.AddDbContext<AEW_DEVContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("Database"),
                     sqlServerOptionsAction: sqloptions =>
                     {
