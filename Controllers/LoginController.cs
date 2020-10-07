@@ -60,9 +60,9 @@ namespace EAW_WebApi.Controllers
                     response = NotFound();
                 }
             }
-            catch
+            catch (Exception e)
             {
-                response = Unauthorized();
+                response = Unauthorized(e.Message);
             }
             return response;
         }
