@@ -42,9 +42,9 @@ namespace EAW_WebApi.Controllers
                     response = Ok(json);
                 }
             }
-            catch
+            catch(Exception e)
             {
-                response = BadRequest();
+                response = BadRequest(e.InnerException);
             }
             return await Task.FromResult(response);
         }

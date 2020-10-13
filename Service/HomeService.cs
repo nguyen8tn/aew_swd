@@ -115,7 +115,7 @@ namespace EAW_WebApi.Data.Service
         #region  *** LINQ ***  get Data WorkShift by EmpId
         private Employee getDataWorkShiftByEmpId(int empId)
         {
-            return _unitOfWork.Repository<Employee>().GetAll().Where(x => x.Active == true && x.Id == empId)
+            var t =  _unitOfWork.Repository<Employee>().GetAll().Where(x => x.Active == true && x.Id == empId)
                 .Include(y => y.WorkingShift)
                     .ThenInclude(z => z.Store)
                         .ThenInclude(j => j.Brand)
@@ -123,6 +123,7 @@ namespace EAW_WebApi.Data.Service
                     .ThenInclude(z=>z.FaceScanMachine)
                         .ThenInclude(j=>j.Store)
                 .FirstOrDefault();
+            return t;
         }
         #endregion
 
