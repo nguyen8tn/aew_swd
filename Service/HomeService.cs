@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace EAW_WebApi.Data.Service
@@ -156,7 +157,15 @@ namespace EAW_WebApi.Data.Service
         #region getDatatime UTC+7 hanoi vietname  FindSystemTimeZoneById = SE Asia Standard Time
         private DateTime getDateTimeHanoiVietName()
         {
-            TimeZoneInfo tst = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            bool isWindows = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+            TimeZoneInfo tst = null;
+            if (isWindows)
+            {
+                tst = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            } else
+            {
+                tst = TimeZoneInfo.FindSystemTimeZoneById("Asia/Ho_Chi_Minh");
+            }
             DateTime dateTime = DateTime.Now;
             return TimeZoneInfo.ConvertTime(dateTime, TimeZoneInfo.Local, tst);
         }
